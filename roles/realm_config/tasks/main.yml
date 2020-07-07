@@ -1,0 +1,38 @@
+---
+
+- name: Configure Server for AD Join
+  include_tasks: ad.yml
+  when: provider == 'ad'
+
+- name: Configure Server for IPA Join
+  include_tasks: ipa.yml
+  when: provider == 'ipa'
+
+- name: update resolv.conf search
+  lineinfile: 
+    path: /etc/resolv.conf
+    regexp: "^search*" 
+    line: "search {{ domain_name }}"
+    state: present
+
+- name: update resolv.conf nameserver
+  lineinfile:
+    path: /etc/resolv.conf
+    state: present
+    insertafter: "^search {{ domain_name }}"
+    line: "nameserver {{ nameserver }}"
+    firstmatch: yes
+
+    
+- name: Update hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    regexp: "^{{ ansible_default_ipv4.address }}"
+    line: "{{ ansible_default_ipv4.address }} {{ ansible_hostname }}.{{ domain_name }} {{ ansible_hostname }}"
+
+
+- name: install pexpect
+  pip:
+    name: pexpect
+    virtualenv: "{{ virtual_env }}"

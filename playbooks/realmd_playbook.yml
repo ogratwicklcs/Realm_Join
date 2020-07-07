@@ -1,0 +1,15 @@
+---
+- name: Realm Join Playbook
+  hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Import Role for installating dependent packages
+    import_role:
+      name: realm_config
+  - name: Use realm_join module to join to IDP  
+    ogratwicklcs.realmd_ipa_ad.realm_join:
+      domain: "{{ domain_name }}"
+      state: "{{ domain_state | default('present') }}"
+      username: "{{ realm_user }}"
+      password: "{{ realm_pass }}"
+

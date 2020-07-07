@@ -1,0 +1,7 @@
+---
+- name: Install packages with YUM
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ ad }}" 
+

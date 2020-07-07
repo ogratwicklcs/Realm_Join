@@ -1,0 +1,9 @@
+---
+ad:
+  - realmd
+  - samba-common-tools
+  - sssd-ad
+  - krb5-workstation
+ipa:
+  - ipa-client
+  - realmd

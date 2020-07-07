@@ -1,0 +1,26 @@
+galaxy_info:
+  author: Oleg Gratwick
+  description: A role for configuration of remote host for the use of the realmd module
+  company: Converge
+  license: GNU General Public License v3.0
+
+  min_ansible_version: 2.8
+  platforms:
+    - name: CentOS
+      versions:
+        - 7
+        - 8
+    - name: RHEL
+      versions:
+        - 7
+        - 8
+
+  galaxy_tags:
+    - rhel
+    - centos
+    - fedora
+    - ipa
+    - ad
+    - realmd
+
+#dependencies: []
