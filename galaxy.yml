@@ -9,7 +9,7 @@ namespace: ogratwicklcs
 name: realmd_ipa_ad
 
 # The version of the collection. Must be compatible with semantic versioning
-version: 1.0.0
+version: 1.1.1
 
 # The path to the Markdown (.md) readme file. This path is relative to the root of the collection
 readme: README.md
@@ -45,7 +45,7 @@ tags: []
 dependencies: {}
 
 # The URL of the originating SCM repository
-repository: https://github.com/ogratwicklcs/realmd_ipa_ad_collection.git
+repository: https://github.com/ogratwicklcs/Realm_Join
 
 # The URL to any online docs
-documentation: https://github.com/ogratwicklcs/realmd_ipa_ad_collection
+documentation: https://github.com/ogratwicklcs/Realm_Join
