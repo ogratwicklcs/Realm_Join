@@ -4,6 +4,8 @@ ad:
   - samba-common-tools
   - sssd-ad
   - krb5-workstation
+  - oddjob-mkhomedir
+  - adcli
 ipa:
   - ipa-client
   - realmd
