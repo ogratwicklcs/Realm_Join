@@ -322,8 +322,16 @@ def run_command(mod_cmd, pexpect, password, module):
         child.expect('Password for ' + module.params["username"] + ":")
         child.sendline(password)
         child.expect(pexpect.EOF)
-        # if child.isalive() == True:
-        #     child.kill(1)
+        # Save any potential error output from the realm process
+        msg = child.before
+        # Close the process so we can get its exit status
+        child.close()
+        rc = child.exitstatus
+
+        if rc != 0:
+            module.fail_json(
+                msg="Unable to join realm",
+                return_value=msg)
     else:
         module.run_command(mod_cmd)
 
